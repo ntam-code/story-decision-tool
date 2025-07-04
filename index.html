@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Storytelling Decision Tool</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Storytelling Decision Tool</h1>
+    <form id="storyForm">
+      <label>Who is your audience?</label>
+      <select id="audience">
+        <option value="policymakers">Policymakers</option>
+        <option value="practitioners">Practitioners</option>
+        <option value="people">People</option>
+        <option value="researchers">Researchers</option>
+        <option value="donors">Donors/Funders</option>
+      </select>
+
+      <label>What is the story about?</label>
+      <select id="storyAbout">
+        <option value="process">Process Story</option>
+        <option value="impact">Impact Story</option>
+        <option value="narrative">Narrative Story</option>
+        <option value="creative">Creative Story</option>
+      </select>
+
+      <label>What message do you want to convey?</label>
+      <select id="message">
+        <option value="evidence-complex">Getting evidence is complex</option>
+        <option value="decision-results">There are results you can use</option>
+        <option value="impact-lives">Lives can be impacted</option>
+        <option value="policy-informed">Policies need to be evidence-informed</option>
+        <option value="practice-informed">Practice needs to be evidence-informed</option>
+        <option value="people-informed">People need to make evidence-based choices</option>
+      </select>
+
+      <label>Why do you want to tell this story?</label>
+      <select id="why">
+        <option value="knowledge">Improve knowledge</option>
+        <option value="behavior">Change behavior</option>
+        <option value="investment">Stimulate investments</option>
+        <option value="community">Stimulate community engagement</option>
+        <option value="culture">Change workplace culture</option>
+      </select>
+
+      <button type="submit">Get Recommendation</button>
+    </form>
+
+    <div id="result" class="result-box"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
