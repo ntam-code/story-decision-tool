@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eBASE Story Decision Tool</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f8fc;
+      color: #1c2d41;
+    }
+    header {
+      background-color: #2e7d9d;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #2e7d9d;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    label {
+      margin-top: 15px;
+      display: block;
+      font-weight: bold;
+    }
+    select, input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .lang-select {
+      text-align: right;
+      margin: 10px 20px;
+    }
+  </style>
+  <script>
+    function showForm(language) {
+      document.getElementById('form-en').style.display = (language === 'en') ? 'block' : 'none';
+      document.getElementById('form-fr').style.display = (language === 'fr') ? 'block' : 'none';
+    }
+
+    function analyzeResponse(form) {
+      const storyType = form["Story Type"].value;
+      let recommendation = "";
+      if (storyType.includes("Process")) recommendation = "We recommend telling a PROCESS STORY.";
+      else if (storyType.includes("Narrative")) recommendation = "We recommend telling a NARRATIVE STORY.";
+      else if (storyType.includes("Impact")) recommendation = "We recommend telling an IMPACT STORY.";
+      else if (storyType.includes("Creative")) recommendation = "We recommend telling a CREATIVE STORY.";
+      else recommendation = "We will help you decide the best story type.";
+      alert("Your response has been recorded. " + recommendation + " We will work with you to tell your story.");
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>eBASE Africa Story Compass Tool</h1>
+  </header>
+
+  <div class="lang-select">
+    <label>Select Language / Choisissez la langue:
+      <select onchange="showForm(this.value)">
+        <option value="">No Response</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="container">
+    <img src="compass.png" alt="eBASE Story Compass" />
+
+    <!-- English Form -->
+    <form id="form-en" style="display:none;" action="https://formsubmit.co/ntam@ebaseafrica.org" method="POST" onsubmit="analyzeResponse(this)">
+      <h2>Who is your target audience?</h2>
+      <select name="Audience" required>
+        <option value="" selected>No response</option>
+        <option>Policymakers</option>
+        <option>Practitioners</option>
+        <option>People</option>
+        <option>Researchers</option>
+        <option>Donors/Funders/Dev agencies</option>
+      </select>
+
+      <h2>What do you want the story to be about?</h2>
+      <select name="Story Type" required>
+        <option value="" selected>No response</option>
+        <option>Process story</option>
+        <option>Narrative story</option>
+        <option>Impact story</option>
+        <option>Creative story</option>
+      </select>
+
+      <h2>What message do you want to convey?</h2>
+      <select name="Message" required>
+        <option value="" selected>No response</option>
+        <option>Getting evidence is complex</option>
+        <option>Results for decision-making</option>
+        <option>Lives can be impacted</option>
+        <option>Policies need evidence</option>
+        <option>Practice needs evidence</option>
+        <option>People need to choose based on evidence</option>
+      </select>
+
+      <h2>Why do you want to tell this story?</h2>
+      <select name="Why" required>
+        <option value="" selected>No response</option>
+        <option>Improve knowledge</option>
+        <option>Change behavior</option>
+        <option>Stimulate investments</option>
+        <option>Engage community</option>
+        <option>Change workplace culture</option>
+      </select>
+
+      <h2>How do you want to tell this story?</h2>
+      <select name="How" required>
+        <option value="" selected>No response</option>
+        <option>Online</option>
+        <option>Television</option>
+        <option>Radio</option>
+        <option>In-person meetings</option>
+        <option>On stage performance</option>
+      </select>
+
+      <h2>When do you want to tell this story?</h2>
+      <select name="When" required>
+        <option value="" selected>No response</option>
+        <option>Today</option>
+        <option>Within a month</option>
+        <option>Within 6 months</option>
+        <option>Within 12 months</option>
+      </select>
+
+      <h2>Any events or seasons you are targeting?</h2>
+      <select name="Season" required>
+        <option value="" selected>No response</option>
+        <option>Harvest season</option>
+        <option>Rainy season</option>
+        <option>Winter</option>
+        <option>Summer</option>
+        <option>After school exams</option>
+      </select>
+
+      <h2>Where do you want to tell this story?</h2>
+      <select name="Location" required>
+        <option value="" selected>No response</option>
+        <option>City hall</option>
+        <option>Village Square</option>
+        <option>Market place</option>
+        <option>Parliament building</option>
+        <option>School</option>
+        <option>Church</option>
+        <option>Conference</option>
+      </select>
+
+      <input type="submit" value="Submit">
+    </form>
+
+    <!-- French form placeholder -->
+    
+    <!-- French Form -->
+    <form id="form-fr" style="display:none;" action="https://formsubmit.co/ntam@ebaseafrica.org" method="POST" onsubmit="analyzeResponse(this)">
+      <h2>Quel est votre public cible ?</h2>
+      <select name="Audience" required>
+        <option value="" selected>Pas de réponse</option>
+        <option>Décideurs politiques</option>
+        <option>Praticiens</option>
+        <option>Population</option>
+        <option>Chercheurs</option>
+        <option>Bailleurs/Agences de développement</option>
+      </select>
+
+      <h2>Quel est le sujet de l'histoire ?</h2>
+      <select name="Story Type" required>
+        <option value="" selected>Pas de réponse</option>
+        <option>Histoire de processus</option>
+        <option>Histoire narrative</option>
+        <option>Histoire d'impact</option>
+        <option>Histoire créative</option>
+      </select>
+
+      <h2>Quel message souhaitez-vous transmettre ?</h2>
+      <select name="Message" required>
+        <option value="" selected>Pas de réponse</option>
+        <option>La collecte de preuves est complexe</option>
+        <option>Des résultats pour orienter les décisions</option>
+        <option>Les interventions efficaces changent des vies</option>
+        <option>Les politiques doivent être fondées sur des preuves</option>
+        <option>La pratique doit être basée sur des preuves</option>
+        <option>Les gens doivent faire des choix éclairés</option>
+      </select>
+
+      <h2>Pourquoi voulez-vous raconter cette histoire ?</h2>
+      <select name="Why" required>
+        <option value="" selected>Pas de réponse</option>
+        <option>Améliorer les connaissances</option>
+        <option>Changer les comportements</option>
+        <option>Stimuler les investissements</option>
+        <option>Engager la communauté</option>
+        <option>Changer la culture professionnelle</option>
+      </select>
+
+      <h2>Comment souhaitez-vous raconter cette histoire ?</h2>
+      <select name="How" required>
+        <option value="" selected>Pas de réponse</option>
+        <option>En ligne</option>
+        <option>Télévision</option>
+        <option>Radio</option>
+        <option>Réunions en personne</option>
+        <option>Performance sur scène</option>
+      </select>
+
+      <h2>Quand souhaitez-vous raconter cette histoire ?</h2>
+      <select name="When" required>
+        <option value="" selected>Pas de réponse</option>
+        <option>Aujourd'hui</option>
+        <option>Dans un mois</option>
+        <option>Dans 6 mois</option>
+        <option>Dans 12 mois</option>
+      </select>
+
+      <h2>Y a-t-il des événements ou des saisons ciblés ?</h2>
+      <select name="Season" required>
+        <option value="" selected>Pas de réponse</option>
+        <option>Saison des récoltes</option>
+        <option>Saison des pluies</option>
+        <option>Hiver</option>
+        <option>Été</option>
+        <option>Après les examens scolaires</option>
+      </select>
+
+      <h2>Où souhaitez-vous raconter cette histoire ?</h2>
+      <select name="Location" required>
+        <option value="" selected>Pas de réponse</option>
+        <option>Hôtel de ville</option>
+        <option>Place du village</option>
+        <option>Marché</option>
+        <option>Bâtiment du parlement</option>
+        <option>École</option>
+        <option>Église</option>
+        <option>Conférence</option>
+      </select>
+
+      <input type="submit" value="Soumettre">
+    </form>
+
+
+  </div>
+
+</body>
+</html>
